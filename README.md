@@ -1,16 +1,24 @@
 # Video Director Lab
 
-A clean experimental project for exploring a natural-language video director system.
+Experimental Python foundation for a natural-language video director workflow.
 
-This repository is intentionally small right now. It is not based on `promptcut`, and it is not the final skill.
+## What exists
 
-## Scope
+- Build structured video production plans from messy briefs.
+- Route work across planning, Remotion, ffmpeg, AI video tools, and pyJianYingDraft.
+- Check local production tools such as Node.js, npm, Python, ffmpeg, and pyJianYingDraft.
+- Generate pyJianYingDraft-oriented draft specs and Python script skeletons.
+- Inspect exported media with ffprobe when available.
 
-- Explore how messy user input becomes a structured video plan.
-- Compare where Remotion, HyperFrames, MotionLayer, and ffmpeg should fit.
-- Design a quality gate so a valid MP4 is not treated as a finished video by default.
-- Keep experiments separate until the direction is clear.
+## Quick start
 
-## Current Status
+```powershell
+python -m pytest
+python -m video_director_lab.cli plan "做一条60秒教育产品介绍视频，需要剪映里继续编辑" --duration 60 --editable-draft --format jianying
+python -m video_director_lab.cli check-env
+python -m video_director_lab.cli jianying-spec "做一条30秒产品介绍视频" --draft-name product-intro-v1 --output out/jianying-spec.json --script-output out/create_jianying_draft.py
+```
 
-Initial clean scaffold. No production implementation yet.
+## Current scope
+
+This is not a full video editor yet. It is the code foundation for planning, execution routing, editable draft handoff, and quality gates.
